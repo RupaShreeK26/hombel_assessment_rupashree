@@ -8,5 +8,10 @@ body,
 }
 
 .App {
+  padding: 0px;
   height: 100%;
+}
+
+p{
+  font-size: 30px;
 }

@@ -12,10 +12,15 @@ const instance = axios.create({
 });
 
 export const getRequest = async (url, params = {}, responseType = "json") => {
-  return instance.get(url, {
-    params,
-    responseType,
-  });
+  let res = {};
+  try {
+    const response = await instance.get(url, { params, responseType });
+    res = response.data;
+  } catch (error) {
+    console.error('Error fetching data: ', error);
+    throw error;
+  }
+  return res;
 };
 
 export const postRequest = async (url, data, options) => {
